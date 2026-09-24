@@ -1,33 +1,39 @@
-# ─── Base ───
+# Base
 FROM python:3.11-slim
 
-# ─── Environment ───
+# Environment
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DEFAULT_TIMEOUT=120
 
 WORKDIR /app
 
-# ─── System deps ───
+# System deps
 RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc g++ build-essential curl \
     && rm -rf /var/lib/apt/lists/*
 
-# ─── Python deps (cached) ───
+# Step 1: Install CPU-only PyTorch FIRST (much smaller — 200 MB vs 800 MB+)
+RUN pip install --no-cache-dir \
+    --index-url https://download.pytorch.org/whl/cpu \
+    torch==2.4.1
+
+# Step 2: Install remaining deps
 COPY requirements-api.txt .
 RUN pip install --no-cache-dir -r requirements-api.txt
 
-# ─── Download spaCy model ───
+# Step 3: Download small spaCy model
 RUN python -m spacy download en_core_web_sm
 
-# ─── Copy source code ───
+# Step 4: Copy source
 COPY src/ ./src/
 COPY configs/ ./configs/
 COPY data/processed/chunks.json ./data/processed/chunks.json
 COPY data/processed/embeddings.npy ./data/processed/embeddings.npy
 COPY data/processed/embeddings_meta.json ./data/processed/embeddings_meta.json
 
-# ─── Build ChromaDB at image build time ───
+# Step 5: Build ChromaDB at image build time
 RUN python -c "from src.rag.vector_store import VectorStore; \
     import json, numpy as np; \
     chunks = json.load(open('data/processed/chunks.json')); \
@@ -36,7 +42,7 @@ RUN python -c "from src.rag.vector_store import VectorStore; \
     s.add_chunks(chunks, emb); \
     print(f'✅ ChromaDB built: {s.collection.count()} docs')"
 
-# ─── Non-root user ───
+# Non-root user
 RUN useradd -m -u 1000 appuser && chown -R appuser:appuser /app
 USER appuser
 

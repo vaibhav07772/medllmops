@@ -9,14 +9,27 @@ class PIIDetector:
     """
     Detect and redact PII using Microsoft Presidio.
     Handles: names, phone numbers, emails, credit cards, SSN, locations.
+    
+    Uses en_core_web_sm (small, 15 MB) instead of default en_core_web_lg (587 MB).
     """
     
     def __init__(self):
         console.print("[cyan]🔧 Loading Presidio...[/cyan]")
         from presidio_analyzer import AnalyzerEngine
+        from presidio_analyzer.nlp_engine import NlpEngineProvider
         from presidio_anonymizer import AnonymizerEngine
         
-        self.analyzer = AnalyzerEngine()
+        # ✅ Use small spaCy model to avoid 587 MB download
+        configuration = {
+            "nlp_engine_name": "spacy",
+            "models": [
+                {"lang_code": "en", "model_name": "en_core_web_sm"},
+            ],
+        }
+        provider = NlpEngineProvider(nlp_configuration=configuration)
+        nlp_engine = provider.create_engine()
+        
+        self.analyzer = AnalyzerEngine(nlp_engine=nlp_engine)
         self.anonymizer = AnonymizerEngine()
         
         # Entities we care about (medical context)
@@ -30,7 +43,7 @@ class PIIDetector:
             "DATE_TIME",
             "IP_ADDRESS",
         ]
-        console.print("   ✅ Presidio loaded")
+        console.print("   ✅ Presidio loaded (using en_core_web_sm)")
     
     def detect(self, text: str, language: str = "en") -> List[Dict]:
         """Detect PII entities in text"""
