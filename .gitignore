@@ -2,84 +2,61 @@
 __pycache__/
 *.py[cod]
 *$py.class
-venv/
-env/
-.venv/
-
-# Data (DVC tracked)
-data/raw/
-data/processed/
-data/chroma_db/
-data/benchmarks/*.csv
-!data/benchmarks/.gitkeep
-
-# Models cache
-.cache/
-models/*.bin
-models/*.safetensors
-
-# Reports
-reports/*.png
-reports/*.json
-!reports/.gitkeep
-
-# Logs
-logs/
-*.log
+.pytest_cache/
+.coverage
+htmlcov/
 
 # Environment
 .env
 .env.local
+venv/
+env/
+.venv/
 
 # IDE
 .vscode/
 .idea/
 *.swp
-
-# Jupyter
 .ipynb_checkpoints/
+
+# Data (large files)
+data/raw/
+data/chroma_db/
+data/benchmarks/*.csv
+
+# Keep processed data for Docker build
+!data/processed/chunks.json
+!data/processed/embeddings.npy
+!data/processed/embeddings_meta.json
+
+# Keep placeholder files
+!data/benchmarks/.gitkeep
+!reports/.gitkeep
+!logs/.gitkeep
+
+# Reports
+reports/*.png
+reports/*.json
+reports/oof/
+
+# Logs
+logs/
+*.log
+
+# Models
+models/*.bin
+models/*.safetensors
+.cache/
+.huggingface/
+checkpoints/
 
 # DVC
 .dvc/cache/
 .dvc/tmp/
 
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
+# Docker
+*.tar
 
 # OS
 .DS_Store
 Thumbs.db
-
-# HuggingFace cache
-.huggingface/
-
-# ChromaDB
-chroma_db/
-
-# Docker
-*.tar
-
-# Model checkpoints
-checkpoints/
-
-__pycache__/
-*.py[cod]
-.env
-.venv/
-venv/
-data/raw/
-data/processed/
-data/chroma_db/
-data/benchmarks/*.csv
-!data/benchmarks/.gitkeep
-.huggingface/
-reports/*.png
-reports/*.json
-!reports/.gitkeep
-logs/*.log
-!logs/.gitkeep
-.pytest_cache/
-.DS_Store
-.dvc/cache/

@@ -1,0 +1,82 @@
+[
+  {
+    "question": "What are the common side effects of metformin?",
+    "ground_truth": "Common side effects include gastrointestinal issues like nausea, vomiting, diarrhea, abdominal pain, and anorexia. Rare but serious is lactic acidosis."
+  },
+  {
+    "question": "What is the mechanism of action of insulin?",
+    "ground_truth": "Insulin binds to insulin receptors on cell membranes, promoting glucose uptake into cells, glycogen synthesis, and inhibiting gluconeogenesis."
+  },
+  {
+    "question": "How effective is the COVID-19 vaccine?",
+    "ground_truth": "mRNA vaccines (Pfizer, Moderna) show 90-95% efficacy against symptomatic COVID-19. Efficacy decreases with new variants but remains strong against severe disease."
+  },
+  {
+    "question": "What are the risk factors for cardiovascular disease?",
+    "ground_truth": "Major risk factors include hypertension, diabetes, smoking, obesity, high cholesterol, family history, age, and sedentary lifestyle."
+  },
+  {
+    "question": "What is the role of PD-L1 in cancer immunotherapy?",
+    "ground_truth": "PD-L1 is an immune checkpoint protein that cancer cells express to evade T-cell attack. Blocking PD-L1 with inhibitors reactivates immune response against tumors."
+  },
+  {
+    "question": "How is depression typically treated?",
+    "ground_truth": "Treatment includes SSRIs, SNRIs, psychotherapy (CBT), lifestyle changes, and in severe cases, electroconvulsive therapy."
+  },
+  {
+    "question": "What are biomarkers for Alzheimer's disease?",
+    "ground_truth": "Key biomarkers: amyloid-beta plaques, tau tangles, reduced hippocampal volume on MRI, and CSF levels of Aβ42 and phosphorylated tau."
+  },
+  {
+    "question": "What are the first-line treatments for hypertension?",
+    "ground_truth": "First-line: ACE inhibitors, ARBs, calcium channel blockers, and thiazide diuretics. Lifestyle changes like diet and exercise are also recommended."
+  },
+  {
+    "question": "How does antibiotic resistance develop?",
+    "ground_truth": "Resistance develops through genetic mutations, horizontal gene transfer, and selective pressure from overuse of antibiotics."
+  },
+  {
+    "question": "What is the recommended dosage of metformin?",
+    "ground_truth": "Typically starts at 500 mg once or twice daily with meals, gradually increased to 1000-2000 mg/day based on glycemic control and tolerance."
+  },
+  {
+    "question": "What are symptoms of type 2 diabetes?",
+    "ground_truth": "Symptoms include increased thirst, frequent urination, fatigue, blurred vision, slow wound healing, and unexplained weight loss."
+  },
+  {
+    "question": "How does immunotherapy work for cancer?",
+    "ground_truth": "Immunotherapy boosts the body's immune system to fight cancer via checkpoint inhibitors, CAR-T cells, monoclonal antibodies, and cytokines."
+  },
+  {
+    "question": "What is the relationship between hypertension and stroke?",
+    "ground_truth": "Hypertension is a leading risk factor for both ischemic and hemorrhagic stroke. High BP damages arteries and increases clot formation risk."
+  },
+  {
+    "question": "What are the long-term effects of COVID-19?",
+    "ground_truth": "Long COVID symptoms include fatigue, brain fog, shortness of breath, chest pain, and cardiovascular complications persisting weeks or months."
+  },
+  {
+    "question": "What is the difference between type 1 and type 2 diabetes?",
+    "ground_truth": "Type 1 is autoimmune, body doesn't produce insulin. Type 2 is insulin resistance with relative insulin deficiency. Type 1 requires insulin therapy; Type 2 is managed with lifestyle, oral drugs, or insulin."
+  },
+  {
+    "question": "What are the benefits of statins?",
+    "ground_truth": "Statins lower LDL cholesterol, reduce cardiovascular events, stabilize plaques, and reduce inflammation. Used for primary and secondary prevention."
+  },
+  {
+    "question": "How is Alzheimer's disease diagnosed?",
+    "ground_truth": "Diagnosis involves cognitive tests, MRI/PET scans, CSF biomarkers, and ruling out other causes. Definitive diagnosis requires post-mortem or amyloid PET."
+  },
+  {
+    "question": "What causes antibiotic-resistant infections?",
+    "ground_truth": "Causes include overuse of antibiotics, incomplete treatment courses, agricultural antibiotic use, and poor infection control practices."
+  },
+  {
+    "question": "What are the side effects of chemotherapy?",
+    "ground_truth": "Common: nausea, hair loss, fatigue, infections, anemia, and mucositis. Long-term: organ damage, secondary cancers, and cognitive issues."
+  },
+  {
+    "question": "What is the role of exercise in diabetes management?",
+    "ground_truth": "Exercise improves insulin sensitivity, helps control blood glucose, aids weight loss, reduces cardiovascular risk, and improves lipid profile."
+  }
+]
