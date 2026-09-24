@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+
+# Data (DVC tracked)
+data/raw/
+data/processed/
+data/chroma_db/
+data/benchmarks/*.csv
+!data/benchmarks/.gitkeep
+
+# Models cache
+.cache/
+models/*.bin
+models/*.safetensors
+
+# Reports
+reports/*.png
+reports/*.json
+!reports/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# DVC
+.dvc/cache/
+.dvc/tmp/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# HuggingFace cache
+.huggingface/
+
+# ChromaDB
+chroma_db/
+
+# Docker
+*.tar
+
+# Model checkpoints
+checkpoints/
+
+__pycache__/
+*.py[cod]
+.env
+.venv/
+venv/
+data/raw/
+data/processed/
+data/chroma_db/
+data/benchmarks/*.csv
+!data/benchmarks/.gitkeep
+.huggingface/
+reports/*.png
+reports/*.json
+!reports/.gitkeep
+logs/*.log
+!logs/.gitkeep
+.pytest_cache/
+.DS_Store
+.dvc/cache/

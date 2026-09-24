@@ -1,0 +1,78 @@
+# ─── Project ───
+project:
+  name: "MedLLMOps"
+  version: "1.0.0"
+  seed: 42
+
+# ─── Data ───
+data:
+  pubmed:
+    max_papers: 5000
+    query_terms:
+      - "diabetes treatment"
+      - "cardiovascular disease"
+      - "cancer immunotherapy"
+      - "COVID-19 vaccine"
+      - "mental health depression"
+  benchmarks:
+    medquad: "data/benchmarks/medquad.csv"
+    medmcqa: "data/benchmarks/medmcqa.csv"
+    test_size: 200
+
+# ─── Chunking ───
+chunking:
+  chunk_size: 512
+  chunk_overlap: 50
+  min_chunk_size: 100
+
+# ─── Embeddings ───
+embeddings:
+  model: "sentence-transformers/all-MiniLM-L6-v2"
+  dimension: 384
+  batch_size: 32
+
+# ─── Vector DB ───
+vector_db:
+  type: "chromadb"
+  persist_dir: "data/chroma_db"
+  collection: "pubmed_abstracts"
+  distance: "cosine"
+
+# ─── Retrieval ───
+retrieval:
+  hybrid: true
+  bm25_weight: 0.3
+  dense_weight: 0.7
+  top_k_retrieval: 10
+  top_k_rerank: 5
+  use_reranker: false  # Free tier: skip
+
+# ─── LLM ───
+llm:
+  provider: "groq"
+  model: "llama-3.3-70b-versatile"
+  temperature: 0.1
+  max_tokens: 1000
+
+# ─── Guardrails ───
+guardrails:
+  pii_detection: true
+  medical_advice_detection: true
+  hallucination_check: true
+  disclaimer: "⚠️ Ye AI-generated information hai. Medical advice ke liye doctor se consult karein."
+
+# ─── Evaluation ───
+evaluation:
+  ragas_metrics:
+    - faithfulness
+    - answer_relevancy
+    - context_precision
+    - context_recall
+  llm_judge: true
+  human_eval_sample: 50
+
+# ─── API ───
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 1
